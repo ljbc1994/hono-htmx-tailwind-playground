@@ -6,7 +6,7 @@ export const login = async (c: Context<Env, "/", {}>) => {
   await new Promise((res) => {
     setTimeout(() => {
       res(true)
-    }, 10000)
+    }, 2500)
   })
 
   const data = await c.req.formData();
