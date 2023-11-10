@@ -12,14 +12,13 @@ export const renderer = jsxRenderer(
     return (
       <html>
         <head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link href="/static/style.css" rel="stylesheet" />
           <script src="/static/htmx.min.js"></script>
           <title>{title}</title>
         </head>
         <body class="bg-gray-900">
-          <div class="container container-lg mx-auto px-2 md:px-10">
-            {children}
-          </div>
+          {children}
         </body>
       </html>
     )
