@@ -3,6 +3,12 @@ import Form from "../components/LoginForm";
 import { LoginFormComplete } from "../components/LoginForm/LoginFormComplete";
 
 export const login = async (c: Context<Env, "/", {}>) => {
+  await new Promise((res) => {
+    setTimeout(() => {
+      res(true)
+    }, 2000)
+  })
+
   const data = await c.req.formData();
 
   if (data.get("password") !== "hello") {
