@@ -7,7 +7,7 @@ export const NavItem = ({
 }) => {
   return (
     <li>
-      <a class="text-gray-400 text-2xl hover:text-white" href={href}>
+      <a class="text-gray-400 text-2xl hover:text-white transition" href={href}>
         {children}
       </a>
     </li>
