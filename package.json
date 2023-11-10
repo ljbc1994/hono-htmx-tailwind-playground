@@ -9,6 +9,7 @@
     "deploy": "$npm_execpath run build && wrangler pages deploy dist"
   },
   "dependencies": {
+    "dotenv": "^16.3.1",
     "hono": "^3.9.2",
     "marked": "^9.1.6",
     "octokit": "^3.1.1"
