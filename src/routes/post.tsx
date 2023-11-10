@@ -11,10 +11,12 @@ export const post = async (c: Context<Env, "/post/:id", {}>) => {
 
   try {
     const response = await fetch(
-      `https://api.github.com/repos/${c.env?.GH_OWNER}/${c.env?.GH_REPO}/contents/${path}`,
+      `https://raw.githubusercontent.com/${c.env?.GH_OWNER}/${c.env?.GH_REPO}/main/${path}`,
       {
+        method: 'GET',
         headers: {
           Authorization: `Bearer ${c.env?.GH_AUTH_TOKEN}`,
+          'Content-Type': 'application/json'
         },
       }
     );
@@ -23,11 +25,9 @@ export const post = async (c: Context<Env, "/post/:id", {}>) => {
       return c.render(<Post content="Not found" />, { title: "Not Found" });
     }
 
-    const data = (await response.json()) as { content: string };
+    const data = (await response.text()) as string;
 
-    const content = Buffer.from(data.content, "base64").toString("utf-8");
-
-    const html = marked.parse(content);
+    const html = marked.parse(data);
 
     c.res.headers.set("Cache-Control", "public, s-maxage=604800");
 
