@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-form.htmx-request .spinner { 
+form.htmx-request .spinner {
     display: block;
 }

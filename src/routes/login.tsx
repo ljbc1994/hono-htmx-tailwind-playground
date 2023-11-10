@@ -6,13 +6,13 @@ export const login = async (c: Context<Env, "/", {}>) => {
   await new Promise((res) => {
     setTimeout(() => {
       res(true)
-    }, 2000)
+    }, 10000)
   })
 
   const data = await c.req.formData();
 
   if (data.get("password") !== "hello") {
-    return c.render(
+    return c.html(
       <Form
         errorMessage="Invalid credentials, try again"
         formData={{
@@ -23,7 +23,7 @@ export const login = async (c: Context<Env, "/", {}>) => {
     );
   }
 
-  return c.render(
+  return c.html(
     <LoginFormComplete username={data.get("username")!.toString()} />
   );
 };
