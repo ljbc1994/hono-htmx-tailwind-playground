@@ -1,3 +1,5 @@
 # Hello, this is a blog post
 
-pretty cool huh?
+> This is a block quote!
+
+pretty cool!

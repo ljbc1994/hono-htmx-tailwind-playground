@@ -10,7 +10,7 @@ export default defineConfig({
   plugins: [
     pages(),
     devServer({
-      entry: 'src/index.tsx'
-    })
+      entry: 'src/index.tsx',
+    }),
   ]
 })
