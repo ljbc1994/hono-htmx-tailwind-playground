@@ -1,5 +1,6 @@
 import 'hono'
 import { jsxRenderer } from 'hono/jsx-renderer'
+import Navigation from './components/Navigation'
 
 declare module 'hono' {
   interface ContextRenderer {
@@ -18,6 +19,9 @@ export const renderer = jsxRenderer(
           <title>{title}</title>
         </head>
         <body class="bg-gray-900">
+          <div class="mb-12">
+            <Navigation />
+          </div>
           {children}
         </body>
       </html>

@@ -1,5 +1,5 @@
-import { Input } from "../form/Input";
-import { Label } from "../form/Label";
+import { Input } from "../../../../components/form/Input";
+import { Label } from "../../../../components/form/Label";
 
 interface FormData {
   username?: string | undefined;
@@ -59,7 +59,7 @@ export const Form = ({ formData, errorMessage }: FormProps) => {
         hx-trigger="submit"
         hx-indicator="spinner"
         type="submit"
-        class="w-full inline-flex items-center text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+        class="w-full inline-flex items-center text-white bg-sky-600 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
       >
         <svg
           class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden spinner"

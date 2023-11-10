@@ -11,6 +11,9 @@ export default defineConfig({
     pages(),
     devServer({
       entry: 'src/index.tsx',
+      cf: {
+        kvNamespaces: ['KV_POST_FEEDBACK']
+      }
     }),
   ]
 })

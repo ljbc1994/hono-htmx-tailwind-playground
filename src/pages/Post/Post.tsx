@@ -1,18 +1,27 @@
 import Container from "../../components/Container";
+import { RatePostForm } from "./components/RatePostForm";
 
 interface PostProps {
+  postId: string
+  postLikes: number
   content: string;
 }
 
-const Post = ({ content }: PostProps) => {
+const Post = ({ postId, postLikes, content }: PostProps) => {
   return (
     <>
-      <div class="bg-blue-600 p-1 mb-10"></div>
       <Container>
-        <article
-          class="prose prose-dark lg:prose-xl"
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
+        <div class="grid md:grid-cols-8 gap-4">
+          <article
+            class="prose prose-dark lg:prose-xl md:col-span-6"
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
+          <aside class="md:col-span-2">
+            <div class="md:sticky top-10">
+              <RatePostForm postId={postId} postLikes={postLikes} />
+            </div>
+          </aside>
+        </div>
       </Container>
     </>
   );

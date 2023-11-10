@@ -1,6 +1,6 @@
 import { Context, Env } from "hono";
-import Form from "../components/LoginForm";
-import { LoginFormComplete } from "../components/LoginForm/LoginFormComplete";
+import Form from "../pages/Home/components/LoginForm";
+import { LoginFormComplete } from "../pages/Home/components/LoginForm/LoginFormComplete";
 
 export const login = async (c: Context<Env, "/", {}>) => {
   await new Promise((res) => {

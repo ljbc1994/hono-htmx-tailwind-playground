@@ -1,5 +1,5 @@
 import Container from "../../components/Container";
-import Form from "../../components/LoginForm";
+import Form from "./components/LoginForm";
 
 const Home = () => {
   return (
