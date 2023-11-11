@@ -5,13 +5,18 @@ import { login } from "./routes/login";
 import { post } from "./routes/post";
 import { ratePost } from "./routes/rate-post";
 import { posts } from "./routes/posts";
+import { Env } from "./types/Bindings";
 
-const app = new Hono();
+const app = new Hono<Env>();
+
+app.use("*", async (c, next) => {
+  await next();
+});
 
 app.get("*", renderer);
 
 app.get("/", home);
-app.get('/posts', posts);
+app.get("/posts", posts);
 app.get("/post/:id", post);
 app.post("/login", login);
 app.post("/rate-post/:id", ratePost);

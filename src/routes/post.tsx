@@ -1,11 +1,14 @@
 import { Context } from "hono";
-import { marked } from "marked";
+
+import type { Env } from "../types/Bindings";
+import type { KvPostFeedback } from "../types/KvPostFeedback";
 
 import Post from "../pages/Post";
-import { Env } from "../types/Bindings";
+
+import { getPostById } from "../api/getPostById";
+
 import { getEnv } from "../utils/getEnv";
-import { getPostByContent } from "../api/getPostByContent";
-import { KvPostFeedback } from "../types/KvPostFeedback";
+import { parseMarkdown } from "../utils/parseMarkdown";
 
 export const post = async (c: Context<Env, "/post/:id", {}>) => {
   const id = c.req.param("id");
@@ -19,23 +22,23 @@ export const post = async (c: Context<Env, "/post/:id", {}>) => {
     );
     const postLikes = postFeedback?.likes ?? 0;
 
-    const data = await getPostByContent(id, { env });
+    const data = await getPostById(id, { env });
 
     if (data == null) {
       return c.render(<Post postId={id} postLikes={0} content="Nope" />, {
-        title: "Example",
+        title: "No post found",
       });
     }
 
-    const html = marked.parse(data);
+    const { html, metadata } = parseMarkdown(data);
 
     return c.render(<Post postId={id} postLikes={postLikes} content={html} />, {
-      title: "Example",
+      title: metadata?.title,
     });
   } catch (err) {
     console.log(err);
     return c.render(<Post postId={id} postLikes={0} content="Error" />, {
-      title: "Not Found",
+      title: "Something went wrong",
     });
   }
 };

@@ -1,7 +1,7 @@
 import { Bindings } from "../types/Bindings";
 import { getKebabCase } from "../utils/getKebabCase";
 
-export async function getPostByContent(id: string, { env }: { env: Partial<Bindings> }) {
+export async function getPostById(id: string, { env }: { env: Partial<Bindings> }) {
   const path = `posts/${getKebabCase(id)}.md`;
 
   try {
