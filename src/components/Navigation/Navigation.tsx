@@ -6,7 +6,7 @@ const Navigation = () => {
     <>
       <div class="bg-sky-400 p-1 mb-6"></div>
       <Container>
-        <nav>
+        <nav hx-boost="true">
           <ul class="flex flex-row gap-8">
             <NavItem href="/">Home</NavItem>
             <NavItem href="/posts">Posts</NavItem>

@@ -18,7 +18,7 @@ export const renderer = jsxRenderer(
           <script src="/static/htmx.min.js"></script>
           <title>{title}</title>
         </head>
-        <body class="bg-gray-900" hx-boost="true">
+        <body class="bg-gray-900">
           <div class="mb-12">
             <Navigation />
           </div>

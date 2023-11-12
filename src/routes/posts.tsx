@@ -6,11 +6,11 @@ import Posts from "../pages/Posts";
 import { PostMetadataService } from "../services/PostMetadataService";
 
 export const posts = async (c: Context<Env, "/posts", {}>) => {
-  const postsMetadata = await new PostMetadataService({
-    env: getEnv(c.env),
-  }).getMetadata();
-
   try {
+    const postsMetadata = await new PostMetadataService({
+      env: getEnv(c.env),
+    }).getMetadata();
+    
     return c.render(<Posts posts={postsMetadata} />);
   } catch (err) {
     console.log(err);

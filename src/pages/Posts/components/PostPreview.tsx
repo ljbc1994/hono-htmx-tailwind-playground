@@ -12,7 +12,7 @@ export const PostPreview = ({ preview }: PostPreviewProps) => {
     >
       {preview.image ? (
         <div class="bg-gradient-to-r from-indigo-700 from-10% to-sky-700 rounded-t-md p-4">
-          <img src={preview.image} />
+          {/* <img src={preview.image} /> */}
         </div>
       ) : null}
       <span class="flex flex-col px-8 py-6 space-y-2">

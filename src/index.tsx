@@ -9,10 +9,6 @@ import { Env } from "./types/Bindings";
 
 const app = new Hono<Env>();
 
-app.use("*", async (c, next) => {
-  await next();
-});
-
 app.get("*", renderer);
 
 app.get("/", home);

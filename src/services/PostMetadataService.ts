@@ -19,7 +19,7 @@ export class PostMetadataService {
     }
 
     const response = await fetch(
-      `${this.env.CF_PAGES_URL}/public/static/posts-manifest.json`,
+      `${this.env.CF_PAGES_URL}/static/posts-manifest.json`,
       { method: "GET" }
     );
 
