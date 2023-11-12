@@ -2,6 +2,10 @@ import { Bindings } from "../types/Bindings";
 
 function getCloudflarePagesUrl(cfPagesUrl?: string) {
     if (cfPagesUrl != null) {
+        if (cfPagesUrl.includes('http')) {
+            return cfPagesUrl
+        }
+
         return `https://${cfPagesUrl}.pages.dev`
     }
     return process.env.CF_PAGES_URL
