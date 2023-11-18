@@ -9,6 +9,7 @@
       "ESNext"
     ],
     "types": [
+      "./global.d.ts",
       "@cloudflare/workers-types",
       "vite/client"
     ],

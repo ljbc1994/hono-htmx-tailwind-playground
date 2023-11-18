@@ -23,8 +23,33 @@ export class PostMetadataService {
       { method: "GET" }
     );
 
-    const content = await response.json()
+    const content = await response.json();
 
-    return content as PostMetadata[]
+    return content as PostMetadata[];
+  }
+
+  public async getMetadataByDateDescending() {
+    const metadata = await this.getMetadata();
+    return metadata.toSorted((a, b) => +new Date(b.date) - +new Date(a.date));
+  }
+
+  public async getPostMetadataDetailsById(id: string): Promise<{
+    post: PostMetadata | undefined;
+    relatedPosts: PostMetadata[];
+  }> {
+    const metadata = await this.getMetadata();
+    const postIndex = metadata?.findIndex(
+      (postMetadata) => postMetadata.slug === id
+    );
+
+    const post = metadata[postIndex];
+
+    const prevPost = metadata[postIndex - 1];
+    const nextPost = metadata[postIndex + 1];
+
+    return {
+      post,
+      relatedPosts: [prevPost, nextPost].filter(Boolean),
+    };
   }
 }

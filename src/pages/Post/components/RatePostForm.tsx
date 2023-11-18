@@ -32,7 +32,7 @@ export const RatePostForm = ({
         {postLikes === 0 ? "Like this post?" : `${postCountText} like this!`}
       </p>
       <p class="text-sky-100">
-        Give this post a thumbs up if you enjoyed it!
+        Give this post a thumbs up!
       </p>
       <button
         hx-post={`/rate-post/${postId}`}

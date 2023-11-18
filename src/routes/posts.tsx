@@ -1,16 +1,14 @@
-import { Context } from "hono";
+import type { Context } from "hono";
+import type { Env } from "../types/Bindings";
 
-import { Env } from "../types/Bindings";
-import { getEnv } from "../utils/getEnv";
 import Posts from "../pages/Posts";
-import { PostMetadataService } from "../services/PostMetadataService";
 
 export const posts = async (c: Context<Env, "/posts", {}>) => {
   try {
-    const postsMetadata = await new PostMetadataService({
-      env: getEnv(c.env),
-    }).getMetadata();
-    
+    const postsMetadata = await c
+      .get("postMetadataService")
+      .getMetadataByDateDescending();
+
     return c.render(<Posts posts={postsMetadata} />);
   } catch (err) {
     console.log(err);

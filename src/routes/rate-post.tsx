@@ -1,6 +1,6 @@
-import { Context } from "hono";
+import type { Context } from "hono";
+import type { Env } from "../types/Bindings";
 
-import { Env } from "../types/Bindings";
 import { RatePostForm } from "../pages/Post/components/RatePostForm";
 import { KvPostFeedback } from "../types/KvPostFeedback";
 
