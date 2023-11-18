@@ -29,7 +29,7 @@ const Post = ({
             <PostHeader metadata={metadata} />
           </div>
           <article
-            class="prose prose-dark lg:prose-xl prose-img:rounded-xl"
+            class="prose prose-dark prose-lg lg:prose-xl prose-img:rounded-xl"
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </article>

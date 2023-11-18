@@ -4,7 +4,7 @@ import Navigation from './components/Navigation'
 
 declare module 'hono' {
   interface ContextRenderer {
-    (content: string, props?: { title?: string }): Response
+    (content: any, props?: { title?: string }): Response
   }
 }
 

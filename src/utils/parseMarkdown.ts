@@ -6,12 +6,12 @@ import { extractor } from "./getFrontMatter";
 import type { PostMetadata } from "../types/PostManifest";
 
 const renderer = {
-  heading(text: string, level: string) {
+  heading(text: string, level: number) {
     const escapedText = text.toLowerCase().replace(/[^\w]+/g, "-");
 
     return `
-      <h${level} class="group">
-        <a name="${escapedText}" class="text-sky-700 hover:text-sky-400 no-underline transition opacity-0 group-hover:opacity-100 absolute -pl-6 md:-ml-8" href="#${escapedText}">
+      <h${level} class="group relative">
+        <a name="${escapedText}" class="text-sky-700 hover:text-sky-400 no-underline transition opacity-0 group-hover:opacity-100 absolute -translate-x-[150%]" href="#${escapedText}">
           <span class="header-link">#</span>
         </a>
         ${text}
